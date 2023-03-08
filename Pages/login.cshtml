@@ -1,0 +1,37 @@
+﻿@page
+@model LearnTutorial.Pages.loginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="text-center">
+    <h1 class="display-6 text-break mb-5">Login or make a account so you can continue where you left off</h1>
+
+<form method="post" asp-page="Login">
+    <div class="container text-center pt-5">
+
+        <p>Username</p>
+            <input  type="text" placeholder="Enter username" name=" Username" id="Username" class="form-control-sm input" asp-for="LoginUserName" />
+
+        <p>Password</p>
+            <input type="password" placeholder="Enter password" name=" Password" id="Password" class="form-control-sm input" asp-for="LoginPassWord" />
+
+        <br />
+
+            <p>UserId: @Model.UserId</p>
+            <p>Password: @Model.Password</p>
+            <p>DateOfRegistration: @Model.DateOfRegistration</p>
+            <p>FirstName: @Model.FirstName</p>
+            <p>LastName: @Model.LastName</p>
+            <p>Email: @Model.Email</p>
+        <button class = "mt-5" type="submit"> Log in</button>
+    </div>
+</form>
+
+
+    <br />
+    <p class="pt-5">No account?</p>
+    <a asp-area="" asp-page="/RegisterLogin">Create one</a>
+
+</div> 
+
