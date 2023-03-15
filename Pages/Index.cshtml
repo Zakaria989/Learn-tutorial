@@ -1,11 +1,14 @@
 ﻿@page
-@model IndexModel
+@model IndexModel 
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>The only page you need to learn about .Net core</p>
-</div> 
+<form method="post" asp-page="Index">
+    <div class="text-center">
+        <h1 class="display-4">Welcome @Model.User </h1>
+        <p>The only page you need to learn about .Net core</p>
+    
+    </div> 
+</form>
     

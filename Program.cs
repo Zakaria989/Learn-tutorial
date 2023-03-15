@@ -1,7 +1,11 @@
+using Microsoft.AspNetCore.Identity;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddOptions();
+builder.Services.AddAuthorizationCore();
 
 
 
