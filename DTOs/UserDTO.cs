@@ -10,11 +10,11 @@ namespace LearnTutorial.DTOs
         [Required(ErrorMessage = "Password is required.")]
         [StringLength(100, ErrorMessage = "Password must be between 6 and 100 characters long.", MinimumLength = 6)]
         public required string Password { get; set; }
-        //public int Id { get; set; }
-        //public DateTime DateOfRegistration { get; set; }
-        //public string FirstName { get; set; }
-        //public string LastName { get; set; }
-        //public string Email { get; set; }
+        public int Id { get; set; }
+        public DateTime DateOfRegistration { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
 
     }
 }

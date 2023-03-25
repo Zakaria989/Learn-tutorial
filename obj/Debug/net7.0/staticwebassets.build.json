@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3zKWAB+77G25Tbh6FhuoHRFEcS4BSctj/j/7stA92dA=",
+  "Hash": "uUU2J1UUUV3aBN8vP/cbO1teXVhDDGQ/tF0mJVANyhc=",
   "Source": "LearnTutorial",
   "BasePath": "_content/LearnTutorial",
   "Mode": "Default",
@@ -17,10 +17,10 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\zakar\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.authentication\\7.0.3\\staticwebassets\\AuthenticationService.js",
+      "Identity": "C:\\Users\\zakar\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.authentication\\7.0.4\\staticwebassets\\AuthenticationService.js",
       "SourceId": "Microsoft.AspNetCore.Components.WebAssembly.Authentication",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\zakar\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.authentication\\7.0.3\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\zakar\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.authentication\\7.0.4\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication",
       "RelativePath": "AuthenticationService.js",
       "AssetKind": "All",
@@ -31,7 +31,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\zakar\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.authentication\\7.0.3\\staticwebassets\\AuthenticationService.js"
+      "OriginalItemSpec": "C:\\Users\\zakar\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.authentication\\7.0.4\\staticwebassets\\AuthenticationService.js"
     },
     {
       "Identity": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\obj\\Debug\\net7.0\\scopedcss\\bundle\\LearnTutorial.styles.css",

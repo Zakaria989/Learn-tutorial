@@ -4,13 +4,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
 using LearnTutorial.DTOs;
 using LearnTutorial.Controllers;
-using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
+using System.Text;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace LearnTutorial.Pages
 {
@@ -60,14 +62,13 @@ namespace LearnTutorial.Pages
             // Authenticate user using AuthController Login method
             var authController = new AuthController(_configuration);
             var result = authController.Login(userDTO);
-
             // If authentication fails, show error message
-            if (result is ActionResult<string> actionResult)
+            if (result.Result is BadRequestObjectResult )
             {
-                var value = (BadRequestObjectResult)actionResult.Result;
-                if ( value.Value != null)
+                var errorValue = (BadRequestObjectResult)result.Result;
+                if (errorValue.Value != null)
                 {
-                    ViewData["ErrorMessage"] = value.Value;
+                    ViewData["ErrorMessage"] = errorValue.Value;
                 }
                 else
                 {
@@ -76,25 +77,43 @@ namespace LearnTutorial.Pages
                 return Page();
             }
 
-
-            // If authentication succeeds, sign in user with authentication cookie
-            var claims = JsonConvert.DeserializeObject<ClaimsIdentity>(result.Value.ToString());
-            var authProperties = new AuthenticationProperties
+            try
             {
-                AllowRefresh = true,
-                ExpiresUtc = DateTimeOffset.UtcNow.AddDays(1),
-                IsPersistent = true,
-            };
-            await HttpContext.SignInAsync(
-                CookieAuthenticationDefaults.AuthenticationScheme,
-                new ClaimsPrincipal(claims),
-                authProperties);
+                // If authentication succeeds, sign in user with authentication cookie
+                var value = (OkObjectResult)result.Result;
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var token = tokenHandler.ReadJwtToken(value.Value.ToString());
+                var claims = token.Claims;
 
-            return LocalRedirect("/");
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+                var authProperties = new AuthenticationProperties
+                {
+                    AllowRefresh = true,
+                    ExpiresUtc = DateTimeOffset.UtcNow.AddDays(1),
+                    IsPersistent = true,
+                };
+
+
+                if (HttpContext != null)
+                {
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
+                }
+            }
+            catch (Exception ex)
+            {
+                // log the exception
+                _logger.LogError(ex, "Error occurred while signing in.");
+                // handle the exception
+                // return an appropriate response to the client or redirect to an error page
+                // for example:
+                return LocalRedirect("/");
+            }
+            return LocalRedirect("/index");
         }
 
-    }
 
+    }
 
 
 }

@@ -17,7 +17,7 @@ namespace LearnTutorial.Models
 		public int UserId { get; set; } 
 		public DateTime DateOfRegistration { get; set; }
 
-		public void CreateUserID() // Need the latest userID from SQL, for CreateUser()
+		public void FindLastUserID() // Need the latest userID from SQL, for CreateUser()
 		{
 			SqlConnection con = DatabaseManager.GetConnection();
 
@@ -30,6 +30,7 @@ namespace LearnTutorial.Models
 				try
 				{
 					UserId = Convert.ToInt32(dr["UserId"]);
+					UserId++;
 				}
 				catch (Exception ex)
 				{
@@ -41,7 +42,7 @@ namespace LearnTutorial.Models
 
 		public void CreateUser()
 		{
-			CreateUserID();
+			FindLastUserID();
 			DateOfRegistration = DateTime.Now;
 
 			try
@@ -51,7 +52,7 @@ namespace LearnTutorial.Models
 				SqlCommand cmd = new SqlCommand("uspAddUser", con);
 				cmd.CommandType = CommandType.StoredProcedure;
 
-				cmd.Parameters.Add(new SqlParameter("@userId", UserId + 1));
+				cmd.Parameters.Add(new SqlParameter("@userId", UserId));
 				cmd.Parameters.Add(new SqlParameter("@userName", UserName));
 				cmd.Parameters.Add(new SqlParameter("@password", PasswordHash));
 				cmd.Parameters.Add(new SqlParameter("@firstName", FirstName));
@@ -71,13 +72,13 @@ namespace LearnTutorial.Models
 			}
 		}
 
-        public void CheckUser()
+        public void ReturnUserData()
 		{
 			try
 			{
 				using (SqlConnection con = DatabaseManager.GetConnection())
 				{
-					SqlCommand cmd = new SqlCommand("uspCheckUser", con);
+					SqlCommand cmd = new SqlCommand("uspReturnUserData", con);
 					cmd.CommandType = CommandType.StoredProcedure;
 
 					cmd.Parameters.Add(new SqlParameter("@userName", UserName));
@@ -98,7 +99,84 @@ namespace LearnTutorial.Models
 			{
 				throw ex;
 			}
-		}
+		}	
+        public bool CheckEmail()
+        {
+			string emailFromSQl = null;
+			bool returnBool = false;
+            try
+            {
+                using (SqlConnection con = DatabaseManager.GetConnection())
+                {
+                    SqlCommand cmd = new SqlCommand("uspCheckEmail", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add(new SqlParameter("@email", Email));
+
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        emailFromSQl = reader.GetString("Email");
+                    }
+                    reader.Close();
+
+					if (emailFromSQl == null)
+					{
+                        returnBool = false; 
+					}
+					else
+					{
+						returnBool = true;
+					}
+					return returnBool;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool CheckUserName()
+        {
+            string UserNameFromSQl = null;
+            bool returnBool = false;
+            try
+            {
+                using (SqlConnection con = DatabaseManager.GetConnection())
+                {
+                    SqlCommand cmd = new SqlCommand("uspCheckUserName", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add(new SqlParameter("@userName", UserName));
+
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        UserNameFromSQl = reader.GetString("UserName");
+                    }
+                    reader.Close();
+
+                    if (UserNameFromSQl == null)
+                    {
+                        returnBool = false;
+                    }
+                    else
+                    {
+                        returnBool = true;
+                    }
+                    return returnBool;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
 

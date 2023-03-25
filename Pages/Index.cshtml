@@ -1,4 +1,7 @@
 ﻿@page
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization;
+@inject AuthenticationStateProvider AuthenticationStateProvider
 @model IndexModel 
 @{
     ViewData["Title"] = "Home page";
@@ -6,9 +9,14 @@
 
 <form method="post" asp-page="Index">
     <div class="text-center">
-        <h1 class="display-4">Welcome @Model.User </h1>
-        <p>The only page you need to learn about .Net core</p>
-    
+        <h1>Welcome @Model.User to a tool that empowers you to take control of your health through better data.</h1>
+
+        <h3>Stay on top of your health progress with our easy-to-use excel sheets.</h3>
     </div> 
+
+    <div>
+        <button type="button" class="btn btn-outline-primary btn-lg" >Features</button>
+        <button type="button" class="btn btn-outline-secondary btn-lg">Get started</button>
+    </div>
 </form>
     

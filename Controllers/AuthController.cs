@@ -7,14 +7,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Collections.Generic;
+using System.Configuration;
+using Microsoft.Extensions.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.IdentityModel.Tokens.Jwt;
 using System.Reflection.PortableExecutable;
 using System.Security.Claims;
 using System.Text;
-
-
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace LearnTutorial.Controllers
 {
@@ -23,11 +25,9 @@ namespace LearnTutorial.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IConfiguration _configuration;
-        public string DbManager { get; set; }
         public AuthController(IConfiguration configuration)
         {
             _configuration = configuration;
-            //DbManager = _configuration.GetSection("AppSettings:DeafultConnection").Value!;
         }
 
         [HttpPost("register")]
@@ -36,28 +36,22 @@ namespace LearnTutorial.Controllers
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(request.Password);
             User user = new User
             {
+                UserName = request.Username,
                 PasswordHash = passwordHash,
-                UserName = request.Username
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                Email = request.Email,
             };
 
-            try
+            if (user.CheckEmail() == true)
             {
-                using (SqlConnection con = DatabaseManager.GetConnection())
-                {
-                    SqlCommand cmd = new SqlCommand("uspInsertUser", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    cmd.Parameters.Add(new SqlParameter("@userName", user.UserName));
-                    cmd.Parameters.Add(new SqlParameter("@passwordHash", user.PasswordHash));
-
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                }
+                return BadRequest("That email is already registered");
             }
-            catch (Exception ex)
+            if (user.CheckUserName() == true)
             {
-                throw ex;
+                return BadRequest("Username is already taken");
             }
+            user.CreateUser();
 
             return Ok(user);
         }
@@ -70,8 +64,8 @@ namespace LearnTutorial.Controllers
                 UserName = request.Username
             };
             //CheckUser method checks for the username and password
-            user.CheckUser();
-            if (user.UserName == null)
+            user.ReturnUserData();
+            if (user.CheckUserName() != true)
             {
                 return BadRequest("User not found");
             }
@@ -80,14 +74,22 @@ namespace LearnTutorial.Controllers
             {
                 return BadRequest("Wrong password.");
             }
-
+             
             string jwt = CreateToken(user);
             return Ok(jwt);
+        }
+        [HttpPost("logout")]
+        public async Task<IActionResult> LogOut()
+        {
+            //SignOutAsync is Extension method for SignOut
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            //Redirect to home page
+            return LocalRedirect("/");
         }
 
         private SymmetricSecurityKey GetSymmetricSecurityKey()
         {
-            var key = Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value);
+            var key = Encoding.UTF8.GetBytes(_configuration.GetSection("jwt:Token").Value); //GDJO6baHwsOz7kPBlHgf
             return new SymmetricSecurityKey(key);
         }
         private string CreateToken(User user)
@@ -95,7 +97,8 @@ namespace LearnTutorial.Controllers
             List<Claim> claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString())
+                new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
+                new Claim(ClaimTypes.Role, "admin"),
             };
 
             var key = GetSymmetricSecurityKey();
@@ -107,7 +110,7 @@ namespace LearnTutorial.Controllers
                 signingCredentials: creds
             );
 
-            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);  //Puts comma in the code instead of periode.
             return jwt;
         }
     }

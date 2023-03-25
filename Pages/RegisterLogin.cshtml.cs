@@ -1,68 +1,89 @@
+using System.ComponentModel.DataAnnotations;
+using LearnTutorial.Controllers;
+using LearnTutorial.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using LearnTutorial.Models;
-using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 
 namespace LearnTutorial.Pages
 {
     public class RegisterLoginModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
-
-        public RegisterLoginModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
-        {
-            _userManager = userManager;
-            _signInManager = signInManager;
-        }
+        [BindProperty]
+        public string UserName { get; set; }
 
         [BindProperty]
-        public InputModel Input { get; set; }
+        public string Password { get; set; }
 
-        public class InputModel
+        [BindProperty]
+        public string FirstName { get; set; }
+
+        [BindProperty]
+        public string LastName { get; set; }
+
+        [BindProperty]
+        [EmailAddress]
+        public string Email { get; set; }
+
+        [TempData]
+        public string ErrorMessage { get; set; }
+        public string? Message { get; private set; }
+
+        private readonly IConfiguration _configuration;
+
+        public RegisterLoginModel(IConfiguration configuration)
         {
-            [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
-            public string Email { get; set; }
-
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at most {1} characters long.", MinimumLength = 6)]
-            [DataType(DataType.Password)]
-            [Display(Name = "Password")]
-            public string Password { get; set; }
-
-            [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-            public string ConfirmPassword { get; set; }
+            _configuration = configuration;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            Message = TempData["Message"]?.ToString();
+            return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost()
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
-                var result = await _userManager.CreateAsync(user, Input.Password);
-                if (result.Succeeded)
-                {
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToPage("/Index");
-                }
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
+                return Page();
             }
 
-            // If we got this far, something failed, redisplay form
-            return Page();
+            // Create a UserDTO object to hold the user information
+            var userDTO = new UserDTO
+            {
+                Username = UserName,
+                Password = Password,
+                FirstName = FirstName,
+                LastName = LastName,
+                Email = Email
+            };
+
+            // Serialize the UserDTO object to a JSON string
+            //var json = JsonConvert.SerializeObject(userDTO);
+
+            // Call the Register method of the AuthController to save the user information
+            var authController = new AuthController(_configuration);
+            var result = authController.Register(userDTO);
+
+            // If registration fails, show error message
+            if (result.Result is BadRequestObjectResult)
+            {
+                var errorValue = (BadRequestObjectResult)result.Result;
+                if (errorValue.Value != null)
+                {
+                    ViewData["ErrorMessage"] = errorValue.Value;
+                }
+                else
+                {
+                    ViewData["ErrorMessage"] = "An unknown error occurred.";
+                }
+                return Page();
+            }
+
+            ViewData["ErrorMessage"] = "Registration successful! You can now log in.";
+            return RedirectToPage("RegisterLogin");
         }
     }
 }

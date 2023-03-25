@@ -4,34 +4,39 @@
 	ViewData["Title"] = "Register";
 
 }
-@*<title>User Registration</title>
+<title>User Registration</title>
 
 <div class="container">
 	<h1>User Registration</h1>
 
-	<form method="post" asp-page="RegisterLogin">
-		<div class="form-group">
-			<label for="username">Username:</label>
-			<input type="text" class="form-control-sm input" required name="username" placeholder="Enter username" asp-for="UserName">
-		</div>
-		<div class="form-group">
-			<label for="password">Password:</label>
-			<input type="password" class="form-control-sm input" required name="password" placeholder="Enter password" asp-for="Password">
-		</div>
-		<div class="form-group">
-			<label for="firstname">First Name:</label>
-			<input type="text" class="form-control-sm input" required name="firstname" placeholder="Enter first name" asp-for="FirstName">
-		</div>
-		<div class="form-group">
-			<label for="lastname">Last Name:</label>
-			<input type="text" class="form-control-sm input" required name="lastname" placeholder="Enter last name" asp-for="LastName" >
-		</div>
-		<div class="form-group">
-			<label for="email">Email:</label>
-			<input type="email" class="form-control-sm input" required name="email" placeholder="Enter email" asp-for="Email">
-		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
-	</form>
+    <form method="post" asp-page="RegisterLogin">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control-sm input" required name="username" placeholder="Enter username" asp-for="UserName">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control-sm input" required name="password" placeholder="Enter password" asp-for="Password">
+        </div>
+        <div class="form-group">
+            <label for="firstname">First Name:</label>
+            <input type="text" class="form-control-sm input" required name="firstname" placeholder="Enter first name" asp-for="FirstName">
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last Name:</label>
+            <input type="text" class="form-control-sm input" required name="lastname" placeholder="Enter last name" asp-for="LastName">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control-sm input" required name="email" placeholder="Enter email" asp-for="Email">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"] as string))
+    {
+        <div class="alert alert-danger" role="alert">@ViewData["ErrorMessage"]</div>
+    }
+
 
 </div>
-*@
