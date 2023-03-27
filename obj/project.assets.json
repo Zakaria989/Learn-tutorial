@@ -5428,9 +5428,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\LearnTutorial.csproj",
-      "projectName": "LearnTutorial",
-      "projectPath": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\LearnTutorial.csproj",
+      "projectUniqueName": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\TrimTonic.csproj",
+      "projectName": "TrimTonic",
+      "projectPath": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\TrimTonic.csproj",
       "packagesPath": "C:\\Users\\zakar\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\obj\\",
       "projectStyle": "PackageReference",

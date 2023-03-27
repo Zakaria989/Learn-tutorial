@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dMuhIPQKb8iFrpdoXJEPHWBTuOWSp6QJny1Gzo6LItZQShtcTS1EyPwUgIqxhYA1LvTjJ0BOluWAK+aRj9gtlg==",
+  "dgSpecHash": "jFw9ai0ZogJqCBtdI/eLGo5HWWAmKajHBmzX9GIH0QrL9HQlRzJaRP3TDoB2882IVFyCq48dNAcEDWjtWb7wwQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\LearnTutorial.csproj",
+  "projectFilePath": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\TrimTonic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zakar\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\zakar\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

@@ -8,15 +8,170 @@
 }
 
 <form method="post" asp-page="Index">
-    <div class="text-center">
-        <h1>Welcome @Model.User to a tool that empowers you to take control of your health through better data.</h1>
+    <div class="p-2 text-center bg-body-tertiary rounded-3">
+        <svg class="bi mt-4 mb-3" style="color: var(--bs-indigo);" width="100" height="100"><use xlink:href="#bootstrap"></use></svg>
+        <h1 class="text-body-emphasis">Welcome @Model.User to a tool that empowers you to take control of your health through better data.</h1>
+        <h3 class ="text-body-emphasis">Stay on top of your health progress with our easy-to-use excel sheets.</h3>
+        
+        <div class="d-inline-flex gap-2 mb-5 mt-5">
+            <a href="#use-cases" class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill" type="button">
+                Features
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                </svg>
+            </a>
+            <button class="btn btn-outline-secondary btn-lg px-4 rounded-pill" type="button">
+                Get started
+            </button>
+        </div>
+        <div >
+            <img class="img-fluid  p-3" src="~/images/IndexPic.png" />
+        </div>
 
-        <h3>Stay on top of your health progress with our easy-to-use excel sheets.</h3>
-    </div> 
 
-    <div>
-        <button type="button" class="btn btn-outline-primary btn-lg" >Features</button>
-        <button type="button" class="btn btn-outline-secondary btn-lg">Get started</button>
+
+
+        <section id="use-cases">
+            <div class=" mb-5">
+                <h2>Save time and see results with our user-friendly excel tracking tools</h2>
+                <h3 class="text-center">Designed to be used by everyone with ease</h3>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="use-cases-card">
+                            <img class="card-img-top" src="~/images/personal_trainer_.svg" alt="Use Case 1 Personal health tracking ">
+                            <div class="card-body">
+                                <h5 class="card-title">Personal health tracking</h5>
+                                <p class="card-text">
+                                    The website can be used by individuals to track their weight, body measurements, and progress towards their fitness goals. 
+                                    The Excel sheets can help users visualize their data and identify patterns or areas where they need to make improvements.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="use-cases-card">
+                            <img class="card-img-top h-auto" src="~/images/coaching.svg" alt="Use Case 2 Health coaching">
+                            <div class="card-body">
+                                <h5 class="card-title">Health coaching</h5>
+                                <p class="card-text">
+                                    Health coaches and personal trainers can use the website to help their clients track their progress and stay on track with their fitness goals. 
+                                    The Excel sheets can be customized to suit the specific needs of each client, making it easier to monitor progress and provide feedback.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="use-cases-card">
+                            <img class="card-img-top" src="~/images/medical_research.svg" alt="Use Case 3 Medical research">
+                            <div class="card-body">
+                                <h5 class="card-title">Medical research</h5>
+                                <p class="card-text">
+                                     Researchers can use the website to collect data from study participants and track their progress over time. 
+                                     The Excel sheets can help researchers visualize the data and identify trends, making it easier to draw conclusions and develop new treatments or interventions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <div>
+            <img class="img-fluid  p-3" src="~/images/IndexPic.png" />
+        </div>
+        <section id="features">
+            <div class=" mb-5">
+                <h2>A wide range of features for health in one place</h2>
+                <h3 class="text-center">Take control over your healthcare choices with efficient and organized data</h3>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card">
+                            <img class="card-img-top" src="~/images/personal_trainer_.svg" alt="Use Case 1 Personal health tracking ">
+                            <div class="card-body">
+                                <h5 class="card-title">User Profiles</h5>
+                                <p class="card-text">
+                                    Create and manage your own profile with personal information like weight, height, age, and fitness goals.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card">
+                            <img class="card-img-top h-auto" src="~/images/coaching.svg" alt="Use Case 2 Health coaching">
+                            <div class="card-body">
+                                <h5 class="card-title">Weight and Measurement Tracking</h5>
+                                <p class="card-text">
+                                    Track your weight and body measurements over time with graphs and charts to visualize your progress.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card">
+                            <img class="card-img-top" src="~/images/medical_research.svg" alt="Use Case 3 Medical research">
+                            <div class="card-body">
+                                <h5 class="card-title">Goal Setting</h5>
+                                <p class="card-text">
+                                    Set and track progress towards your fitness goals by setting a target weight or desired body fat percentage.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card">
+                            <img class="card-img-top" src="~/images/user_profiles.svg" alt="Use Case 4 User profiles">
+                            <div class="card-body">
+                                <h5 class="card-title">Customizable Excel Sheets</h5>
+                                <p class="card-text">
+                                    Customize your Excel sheets to fit your specific needs by adding columns for tracking metrics or custom formulas for analyzing data.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card">
+                            <img class="card-img-top" src="~/images/weight_tracking.svg" alt="Use Case 5 Weight and measurement tracking">
+                            <div class="card-body">
+                                <h5 class="card-title">Fitness Tracker Integration</h5>
+                                <p class="card-text">
+                                    Connect your fitness tracker, such as Fitbit or Apple Watch, to automatically track your exercise and activity levels.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card">
+                            <img class="card-img-top" src="~/images/meal_planning.svg" alt="Use Case 6 Meal planning">
+                            <div class="card-body">
+                                <h5 class="card-title">Health Coaching</h5>
+                                <p class="card-text">
+                                    Access health coaches or personal trainers to help you develop and 
+                                    achieve your fitness goals with features like messaging or video chat for virtual coaching sessions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+
+
+
+
     </div>
+
+
 </form>
     

@@ -1,8 +1,8 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\LearnTutorial.bundle.scp.css",
-      "PackagePath": "staticwebassets\\LearnTutorial.bundle.scp.css"
+      "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\TrimTonic.bundle.scp.css",
+      "PackagePath": "staticwebassets\\TrimTonic.bundle.scp.css"
     },
     {
       "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\css\\site.css",
@@ -11,6 +11,22 @@
     {
       "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\images\\IndexPic.png",
+      "PackagePath": "staticwebassets\\images\\IndexPic.png"
+    },
+    {
+      "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\images\\coaching.svg",
+      "PackagePath": "staticwebassets\\images\\coaching.svg"
+    },
+    {
+      "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\images\\medical_research.svg",
+      "PackagePath": "staticwebassets\\images\\medical_research.svg"
+    },
+    {
+      "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\images\\personal_trainer_.svg",
+      "PackagePath": "staticwebassets\\images\\personal_trainer_.svg"
     },
     {
       "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\images\\user_icon.svg",
@@ -249,20 +265,20 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.LearnTutorial.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.TrimTonic.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.LearnTutorial.props",
-      "PackagePath": "build\\LearnTutorial.props"
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.TrimTonic.props",
+      "PackagePath": "build\\TrimTonic.props"
     },
     {
-      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.LearnTutorial.props",
-      "PackagePath": "buildMultiTargeting\\LearnTutorial.props"
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.TrimTonic.props",
+      "PackagePath": "buildMultiTargeting\\TrimTonic.props"
     },
     {
-      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.LearnTutorial.props",
-      "PackagePath": "buildTransitive\\LearnTutorial.props"
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.TrimTonic.props",
+      "PackagePath": "buildTransitive\\TrimTonic.props"
     }
   ],
   "ElementsToRemove": []
