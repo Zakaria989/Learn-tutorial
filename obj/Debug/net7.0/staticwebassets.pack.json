@@ -17,8 +17,28 @@
       "PackagePath": "staticwebassets\\images\\IndexPic.png"
     },
     {
+      "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\images\\add_user.svg",
+      "PackagePath": "staticwebassets\\images\\add_user.svg"
+    },
+    {
       "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\images\\coaching.svg",
       "PackagePath": "staticwebassets\\images\\coaching.svg"
+    },
+    {
+      "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\images\\completed.svg",
+      "PackagePath": "staticwebassets\\images\\completed.svg"
+    },
+    {
+      "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\images\\female_avatar.svg",
+      "PackagePath": "staticwebassets\\images\\female_avatar.svg"
+    },
+    {
+      "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\images\\male_avatar.jpg",
+      "PackagePath": "staticwebassets\\images\\male_avatar.jpg"
+    },
+    {
+      "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\images\\male_avatar.svg",
+      "PackagePath": "staticwebassets\\images\\male_avatar.svg"
     },
     {
       "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\images\\medical_research.svg",
@@ -29,8 +49,28 @@
       "PackagePath": "staticwebassets\\images\\personal_trainer_.svg"
     },
     {
+      "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\images\\personal_trainin.svg",
+      "PackagePath": "staticwebassets\\images\\personal_trainin.svg"
+    },
+    {
+      "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\images\\spreadsheets.svg",
+      "PackagePath": "staticwebassets\\images\\spreadsheets.svg"
+    },
+    {
+      "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\images\\target.svg",
+      "PackagePath": "staticwebassets\\images\\target.svg"
+    },
+    {
+      "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\images\\teaching.svg",
+      "PackagePath": "staticwebassets\\images\\teaching.svg"
+    },
+    {
       "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\images\\user_icon.svg",
       "PackagePath": "staticwebassets\\images\\user_icon.svg"
+    },
+    {
+      "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\images\\watch_application.svg",
+      "PackagePath": "staticwebassets\\images\\watch_application.svg"
     },
     {
       "Id": "C:\\Users\\zakar\\OneDrive - USN\\2021 IA\\Høst22\\ObrP\\Projekt\\LearnTutorial\\wwwroot\\js\\site.js",
