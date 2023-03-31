@@ -31,10 +31,10 @@ namespace LearnTutorial.Controllers
         }
 
         [HttpPost("register")]
-        public ActionResult<User> Register(UserDTO request)
+        public ActionResult<UserManager> Register(UserDTO request)
         {
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(request.Password);
-            User user = new User
+            UserManager user = new UserManager(_configuration)
             {
                 UserName = request.Username,
                 PasswordHash = passwordHash,
@@ -59,7 +59,7 @@ namespace LearnTutorial.Controllers
         [HttpPost("login")]
         public ActionResult<string> Login(UserDTO request)
         {
-            User user = new User 
+            UserManager user = new UserManager(_configuration)
             {
                 UserName = request.Username
             };
@@ -89,10 +89,11 @@ namespace LearnTutorial.Controllers
 
         private SymmetricSecurityKey GetSymmetricSecurityKey()
         {
-            var key = Encoding.UTF8.GetBytes(_configuration.GetSection("jwt:Token").Value); //GDJO6baHwsOz7kPBlHgf
+            var key = Encoding.UTF8.GetBytes(_configuration.GetSection("jwt:Token").Value);
             return new SymmetricSecurityKey(key);
+
         }
-        private string CreateToken(User user)
+        private string CreateToken(UserManager user)
         {
             List<Claim> claims = new List<Claim>
             {

@@ -1,0 +1,78 @@
+﻿@page
+@model TrimTonic.Pages.UserProfileModel
+@{
+}
+
+
+<div class="p-2 text-center bg-body-tertiary rounded-3">
+
+
+    <title>Welcome to Your Dashboard, @Model.HttpContext.User.Identity.Name</title>
+
+    <h1>Welcome to Your Dashboard</h1>
+    <p>Here are some useful links:</p>
+    <ul>
+      <li><a href="#data-table">View Data in Table Format</a></li>
+      <li><a href="#data-chart">View Data in Chart Format</a></li>
+      <li><a href="#bmi-calc">Calculate BMI and Goal Weight</a></li>
+    </ul>
+
+    <h2 id="data-table">Data Table</h2>
+    <p>This is where you can view your data in a table format:</p>
+    <!-- insert code for data table page here -->
+
+    <h2 id="data-chart">Data Chart</h2>
+    <p>This is where you can view your data in a chart format:</p>
+    <!-- insert code for data chart page here -->
+
+    <h2 id="bmi-calc">BMI Calculator</h2>
+    <p>This is where you can calculate your BMI and goal weight:</p>
+    <!-- insert code for BMI calculator page here -->
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2>Edit Profile</h2>
+                <form method="post" action="/user/update">
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm_password">Confirm Password:</label>
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+                    </div>
+                    <div class="form-group">
+                        <label for="height">Height (inches):</label>
+                        <input type="number" class="form-control" id="height" name="height" value="{{ user.height }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="current_weight">Current Weight (lbs):</label>
+                        <input type="number" class="form-control" id="current_weight" name="current_weight" value="{{ user.current_weight }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="goal_weight">Goal Weight (lbs):</label>
+                        <input type="number" class="form-control" id="goal_weight" name="goal_weight" value="{{ user.goal_weight }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="number" class="form-control" id="age" name="age" value="{{ user.age }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="sex">Sex:</label>
+                        @*<select class="form-control" id="inputSex" name="sex">
+                        <option value="M" @(user.Sex == "M" ? "selected" : "")>Male</option>
+                        <option value="F" @(user.Sex == "F" ? "selected" : "")>Female</option>
+                        </select>*@
+                    </div>
+                    <input type="hidden" name="user_id" value="{{ user.user_id }}">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>

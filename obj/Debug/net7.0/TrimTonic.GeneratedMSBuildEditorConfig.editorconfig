@@ -36,8 +36,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9nb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/zakar/OneDrive - USN/2021 IA/Høst22/ObrP/Projekt/LearnTutorial/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+[C:/Users/zakar/OneDrive - USN/2021 IA/Høst22/ObrP/Projekt/LearnTutorial/Pages/My data.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXkgZGF0YS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/zakar/OneDrive - USN/2021 IA/Høst22/ObrP/Projekt/LearnTutorial/Pages/RegisterLogin.cshtml]
@@ -46,6 +46,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/zakar/OneDrive - USN/2021 IA/Høst22/ObrP/Projekt/LearnTutorial/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zakar/OneDrive - USN/2021 IA/Høst22/ObrP/Projekt/LearnTutorial/Pages/UserProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/zakar/OneDrive - USN/2021 IA/Høst22/ObrP/Projekt/LearnTutorial/Pages/_ViewImports.cshtml]

@@ -1,95 +1,104 @@
 ﻿@page
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.Authorization;
+@using System.Configuration;
+@using TrimTonic.Models;
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @model IndexModel 
 @{
     ViewData["Title"] = "Home page";
 }
 
-<form method="post" asp-page="Index">
+<form method="post" asp-page="Index" class="container">
     <div class="p-2 text-center bg-body-tertiary rounded-3">
-        <svg class="bi mt-4 mb-3" style="color: var(--bs-indigo);" width="100" height="100"><use xlink:href="#bootstrap"></use></svg>
-        <h1 class="text-body-emphasis">Welcome @Model.User to a tool that empowers you to take control of your health through better data.</h1>
-        <h3 class ="text-body-emphasis">Stay on top of your health progress with our easy-to-use excel sheets.</h3>
-        
-        <div class="d-inline-flex gap-2 mb-5 mt-5">
-            <a href="#use-cases" class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill" type="button">
-                Features
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
-                </svg>
-            </a>
-            <a href="/login" class="btn btn-outline-secondary btn-lg px-4 rounded-pill" type="button">
-                Get started
-            </a>
-        </div>
-        <div >
-            <img class="img-fluid  p-3" src="~/images/IndexPic.png" />
-        </div>
 
-
-
-
-        <section id="use-cases">
-            <div class=" mb-5">
-                <h2>Save time and see results with our user-friendly excel tracking tools</h2>
-                <h3 class="text-center">Designed to be used by everyone with ease</h3>
+        @*@if (!User.Identity.IsAuthenticated)*@
+        {
+            <div class="main_text mt-4 jumbotron mt-4">
+                <h1 class="text-body-emphasis">Welcome @Model.User to a tool that empowers you to take control of your health through better data.</h1>
+                <hr class="my-4">
+                <h3 class="text-body-emphasis">Stay on top of your health progress with our easy-to-use excel sheets.</h3>
             </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="use-cases-card">
-                            <img class="card-img-top" src="~/images/personal_trainer_.svg" alt="Use Case 1 Personal health tracking ">
-                            <div class="card-body">
-                                <h5 class="card-title">Personal health tracking</h5>
-                                <p class="card-text">
-                                    The website can be used by individuals to track their weight, body measurements, and progress towards their fitness goals. 
-                                    The Excel sheets can help users visualize their data and identify patterns or areas where they need to make improvements.
-                                </p>
+
+            <div class="d-flex justify-content-center mb-5 mt-5 user_not_logged_in">
+                <a href="#use-cases" class="btn btn-primary btn-lg px-4 rounded-pill mr-3" type="button">
+                    Features
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                    </svg>
+                </a>
+                <a href="/login" class="btn btn-outline-secondary btn-lg px-4 rounded-pill" type="button">
+                    Get started
+                </a>
+            </div>
+                <div class="user_not_logged_in mb-5">
+                    <img class="img-fluid  p-3" src="~/images/IndexPic.png" />
+                </div>
+
+
+
+            <section class="user_not_logged_in" id="use-cases">
+
+                <div class=" mb-5 jumbotron mt-4">
+                    <h2>Save time and see results with our user-friendly excel tracking tools</h2>
+                    <hr class="my-4">
+                    <h3 class="text-center">Designed to be used by everyone with ease</h3>
+                </div>
+                <div class="container card-deck align-items-center">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="use-cases-card">
+                                <img class="card-img-top" src="~/images/personal_trainer_.svg" alt="Use Case 1 Personal health tracking ">
+                                <div class="card-body">
+                                    <h5 class="card-title">Personal health tracking</h5>
+                                    <p class="card-text">
+                                        The website can be used by individuals to track their weight, body measurements, and progress towards their fitness goals. 
+                                        The Excel sheets can help users visualize their data and identify patterns or areas where they need to make improvements.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="use-cases-card">
-                            <img class="card-img-top h-auto" src="~/images/coaching.svg" alt="Use Case 2 Health coaching">
-                            <div class="card-body">
-                                <h5 class="card-title">Health coaching</h5>
-                                <p class="card-text">
-                                    Health coaches and personal trainers can use the website to help their clients track their progress and stay on track with their fitness goals. 
-                                    The Excel sheets can be customized to suit the specific needs of each client, making it easier to monitor progress and provide feedback.
-                                </p>
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="use-cases-card">
+                                <img class="card-img-top " src="~/images/coaching.svg" alt="Use Case 2 Health coaching">
+                                <div class="card-body">
+                                    <h5 class="card-title">Health coaching</h5>
+                                    <p class="card-text">
+                                        Health coaches and personal trainers can use the website to help their clients track their progress and stay on track with their fitness goals. 
+                                        The Excel sheets can be customized to suit the specific needs of each client, making it easier to monitor progress and provide feedback.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="use-cases-card">
-                            <img class="card-img-top" src="~/images/medical_research.svg" alt="Use Case 3 Medical research">
-                            <div class="card-body">
-                                <h5 class="card-title">Medical research</h5>
-                                <p class="card-text">
-                                     Researchers can use the website to collect data from study participants and track their progress over time. 
-                                     The Excel sheets can help researchers visualize the data and identify trends, making it easier to draw conclusions and develop new treatments or interventions.
-                                </p>
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="use-cases-card">
+                                <img class="card-img-top" src="~/images/medical_research.svg" alt="Use Case 3 Medical research">
+                                <div class="card-body">
+                                    <h5 class="card-title">Medical research</h5>
+                                    <p class="card-text">
+                                        Researchers can use the website to collect data from study participants and track their progress over time. 
+                                        The Excel sheets can help researchers visualize the data and identify trends, making it easier to draw conclusions and develop new treatments or interventions.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </section>
+
+
+
+            <div class="user_not_logged_in">
+                <img class="img-fluid  p-3" src="~/images/IndexPic.png" />
             </div>
-        </section>
-
-
-
-        <div>
-            <img class="img-fluid  p-3" src="~/images/IndexPic.png" />
-        </div>
-        <section id="features">
-            <div class=" mb-5">
+            <section class="user_not_logged_in" id="features">
+                <div class=" mb-5 jumbotron mt-4">
                 <h2>A wide range of features for health in one place</h2>
+                <hr class="my-4">
                 <h3 class="text-center">Take control over your healthcare choices with efficient and organized data</h3>
             </div>
 
-            <div class="container">
+            <div class="container card-deck">
                 <div class="row">
                     <div class="col-md-6 col-lg-4 mb-4">
                         <div class="card">
@@ -164,16 +173,15 @@
 
             </div>
         </section>
+        }
 
-
-
-
+        
 
 
 
 
     </div>
-
-
 </form>
-    
+
+
+
