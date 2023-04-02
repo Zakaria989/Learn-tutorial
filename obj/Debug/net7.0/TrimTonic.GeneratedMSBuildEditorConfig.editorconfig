@@ -20,6 +20,14 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/zakar/OneDrive - USN/2021 IA/Høst22/ObrP/Projekt/LearnTutorial/Pages/Analytics.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQW5hbHl0aWNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zakar/OneDrive - USN/2021 IA/Høst22/ObrP/Projekt/LearnTutorial/Pages/Data Viewer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGF0YSBWaWV3ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/zakar/OneDrive - USN/2021 IA/Høst22/ObrP/Projekt/LearnTutorial/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,10 +42,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/zakar/OneDrive - USN/2021 IA/Høst22/ObrP/Projekt/LearnTutorial/Pages/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9nb3V0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/zakar/OneDrive - USN/2021 IA/Høst22/ObrP/Projekt/LearnTutorial/Pages/My data.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXkgZGF0YS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/zakar/OneDrive - USN/2021 IA/Høst22/ObrP/Projekt/LearnTutorial/Pages/RegisterLogin.cshtml]

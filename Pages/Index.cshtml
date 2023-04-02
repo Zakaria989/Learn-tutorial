@@ -10,23 +10,18 @@
 }
 
 <form method="post" asp-page="Index" class="container">
-    <div class="p-2 text-center bg-body-tertiary rounded-3">
+    <div class="p-2 text-center bg-body-tertiary rounded-3" id="home">
 
-        @*@if (!User.Identity.IsAuthenticated)*@
+        @if (!User.Identity.IsAuthenticated)
         {
-            <div class="main_text mt-4 jumbotron mt-4">
-                <h1 class="text-body-emphasis">Welcome @Model.User to a tool that empowers you to take control of your health through better data.</h1>
+            <div class="main_text mt-4 pt-5 jumbotron mt-4" >
+                <h1 class="text-body-emphasis">Welcome @Model.User.Identity.Name to a tool that empowers you to take control of your health through better data.</h1>
                 <hr class="my-4">
                 <h3 class="text-body-emphasis">Stay on top of your health progress with our easy-to-use excel sheets.</h3>
             </div>
 
             <div class="d-flex justify-content-center mb-5 mt-5 user_not_logged_in">
-                <a href="#use-cases" class="btn btn-primary btn-lg px-4 rounded-pill mr-3" type="button">
-                    Features
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
-                    </svg>
-                </a>
+
                 <a href="/login" class="btn btn-outline-secondary btn-lg px-4 rounded-pill" type="button">
                     Get started
                 </a>
@@ -37,7 +32,7 @@
 
 
 
-            <section class="user_not_logged_in" id="use-cases">
+            <section class="user_not_logged_in pb-5 pt-5" id="use-cases">
 
                 <div class=" mb-5 jumbotron mt-4">
                     <h2>Save time and see results with our user-friendly excel tracking tools</h2>
@@ -89,12 +84,15 @@
 
 
             <div class="user_not_logged_in">
-                <img class="img-fluid  p-3" src="~/images/IndexPic.png" />
+                <img class="img-fluid  p-3" src="~/images/IndexPic.png"  />
             </div>
-            <section class="user_not_logged_in" id="features">
+
+            <div id="features">
+            <hr class="my-4">
+
+            <section class="user_not_logged_in pb-5 pt-5" >
                 <div class=" mb-5 jumbotron mt-4">
                 <h2>A wide range of features for health in one place</h2>
-                <hr class="my-4">
                 <h3 class="text-center">Take control over your healthcare choices with efficient and organized data</h3>
             </div>
 
@@ -173,6 +171,45 @@
 
             </div>
         </section>
+            </div>
+
+            <hr />
+            <section class="pt-5" id="contact">
+            <div class="container">
+                    <h2>Contact Us</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form action="#" method="post">
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">Subject:</label>
+                                    <input type="text" class="form-control" id="subject" placeholder="Enter subject" name="subject" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message:</label>
+                                    <textarea class="form-control" rows="5" id="message" name="message" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+
+                        </div>
+                            <iframe class=" col " src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2046.6192494815155!2d9.669975016138604!3d59.138770033328804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4646df8bb027abb1%3A0x2c572ce353d0fc32!2sUniversitetet%20i%20S%C3%B8r%C3%B8st-Norge%20%E2%80%93%20campus%20Porsgrunn!5e0!3m2!1sno!2sno!4v1680458648139!5m2!1sno!2sno" width="600" height="450" style="border:0;" allowfullscreen="" 
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                    </div>
+                </div>
+            </section>
+
+
+
+
         }
 
         

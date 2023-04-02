@@ -3,12 +3,12 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @model PrivacyModel
 @{
-    ViewData["Title"] = "My data";
+    ViewData["Title"] = "Data Viewer";
 }
 
 @if (User.Identity.IsAuthenticated)
 {
-    <div>
+    <div class="p-2 text-center bg-body-tertiary rounded-3">
         <h1>Values</h1>
         <p>Below you can see all of your values.</p>
         @if (Model.weightDataList.Count > 0)
@@ -38,5 +38,6 @@
             <p>No weight data found.</p>
         }
     </div>
-
 }
+
+

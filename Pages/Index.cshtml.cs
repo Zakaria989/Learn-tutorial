@@ -24,17 +24,6 @@ namespace LearnTutorial.Pages
         public void OnGet()
         {
 
-            //if (HttpContext.User.Identity.IsAuthenticated)
-            //{
-            //    // Get user data from the cookie
-            //    var username = HttpContext.User.Identity.Name;
-            //    //var userId = HttpContext.User.Identity.;
-            //    User = username;
-            //}
-            //else
-            //{
-            //    User = "";
-            //}
 
 
         }

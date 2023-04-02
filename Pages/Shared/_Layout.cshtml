@@ -11,42 +11,58 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light fixed-top bg-white algin border-bottom box-shadow  mb-3"   >
+            <div class="container  ">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">TrimTonic</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span> 
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/My data">My data</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/About">About</a></li>
-                    </ul>
-                    @if (!User.Identity.IsAuthenticated)
-                    {
-                        <form method="post" asp-area="" asp-page="/Login">
-                            <button type="submit" class="btn btn-white position-right top-0">
-                                Login
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
-                                </svg>
-                            </button>
-                        </form>
-                    }
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between align-items-end ">
+                    <ul class="navbar-nav d-flex ms-auto">
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <a href="/index"  class="btn" type="button">
+                                Home
+                            </a>
+                            <a href="/index/#use-cases" class="btn" type="button">
+                                    Use cases
+                            </a>
+                            <a href="/index/#features" class="btn" type="button">
+                                    Features
+                            </a>
+                            <a href="/index/#contact" class="btn" type="button">
+                                    Contact
+                            </a>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/About">About</a></li>
 
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                    <a class="nav-link text-dark" asp-area="" asp-page="/UserProfile">@User.Identity.Name</a>
-                    <form method="post" asp-page-handler="logout" asp-page="/Logout">
-                        <button type="submit" class="btn btn-white position-right top-0">
-                            Logout
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2.146 1.146a.5.5 0 01.708 0L6.5 4.793V2.5a.5.5 0 011 0v4a.5.5 0 01-.5.5H2a.5.5 0 010-1h3.793l-3.647-3.646a.5.5 0 010-.708z" clip-rule="evenodd" />
-                            </svg>
-                        </button>
-                    </form>
-                    }
+                        }
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Data Viewer">Data Viewer</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Analytics">Analytics</a></li>
+                            <li><a class="nav-link text-dark" asp-area="" asp-page="/UserProfile">@User.Identity.Name</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/About">About</a></li>
+                            <li>
+                                        <form method="post" asp-page-handler="logout" asp-page="/Logout">
+                                <button type="submit" class="btn btn-white position-right top-0">
+                                    Logout
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M2.146 1.146a.5.5 0 01.708 0L6.5 4.793V2.5a.5.5 0 011 0v4a.5.5 0 01-.5.5H2a.5.5 0 010-1h3.793l-3.647-3.646a.5.5 0 010-.708z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </form>
+                            </li>
+  
+
+
+                        }
+
+                           
+
+
+                    </ul>
                 </div>
             </div>
         </nav>
