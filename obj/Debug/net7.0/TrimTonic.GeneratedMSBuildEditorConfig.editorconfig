@@ -24,8 +24,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQW5hbHl0aWNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/zakar/OneDrive - USN/2021 IA/Høst22/ObrP/Projekt/LearnTutorial/Pages/Data Viewer.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGF0YSBWaWV3ZXIuY3NodG1s
+[C:/Users/zakar/OneDrive - USN/2021 IA/Høst22/ObrP/Projekt/LearnTutorial/Pages/Data_Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGF0YV9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zakar/OneDrive - USN/2021 IA/Høst22/ObrP/Projekt/LearnTutorial/Pages/Data_Viewer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGF0YV9WaWV3ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/zakar/OneDrive - USN/2021 IA/Høst22/ObrP/Projekt/LearnTutorial/Pages/Error.cshtml]

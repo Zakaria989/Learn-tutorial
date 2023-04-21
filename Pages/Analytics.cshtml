@@ -1,5 +1,86 @@
 ﻿@page
 @model TrimTonic.Pages.AnalyticsModel
 @{
-
+    ViewData["Title"] = "View measurements";
+    string chartTitle1 = "Temperature Data TMP36";
+    string chartTitle2 = "Temperature Data Thermistor";
+    string chartTitle3 = "Light sensor Data";
+    string chartUnit1 = "Celsius";
+    string chartUnit2 = "Lux";
 }
+
+
+<div class="header">
+    <h1>View all the collected data below </h1>
+    <h4>You can either see the automatically generated data or choose the kind you want to see</h4>
+</div>
+<div>
+    <lable>Chart or table mode</lable>
+
+    <input type="checkbox" name="switch2" id="switch2" style="pointer-events: none" />
+    <div class="outerChart">
+        <label for="switch2">
+            <span class="toggleChart">
+                <span class="circleChart"> </span>
+            </span>
+        </label>
+    </div>
+</div>
+<div id="divChartOrTable">
+    <div id="headerChart">
+        <form method="post">
+            <h3>Sort Chart with timestamp:</h3>
+            <label for="ChartMeasurement">Sort by:</label>
+            <select name="sortByChart" id="sortByChart" onchange="this.form.submit()">
+                <option value=" "></option>
+                <option value="1">Today</option>
+                <option value="2">Last 7 days</option>
+                <option value="3">Last Month</option>
+                <option value="4">This year</option>
+            </select>
+        </form>
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', { 'packages': ['corechart'] });
+            google.charts.setOnLoadCallback(drawChart);
+
+    <div id="headerTable">
+        <form method="post">
+            <h3>All sensor information with timestamp:</h3>
+            <label for="SensorMeasurement">Sort by:</label>
+            <select name="sortBy" id="sortBy" onchange="this.form.submit()">
+                <option value=" "></option>
+                <option value="1">Number</option>
+                <option value="2">Highest value</option>
+                <option value="3">Lowest value</option>
+                <option value="4">Newest timestamp</option>
+                <option value="5">Oldest timestamp</option>
+                <option value="6">Sensor Name</option>
+            </select>
+        </form>
+@*        <table class="table" id="table" style="width:100%">
+            <thead ">
+                <tr>
+                    <th>Number</th>
+                    <th>Measurement value </th>
+                    <th>Timestamp</th>
+                    <th>Sensor name</th>
+                </tr>
+            </thead>
+            <tbody class"tbody">
+                @foreach (var measurement in Model.sensorData)
+                {
+                <tr>
+                    <td>@measurement.Row</td>
+                    <td>@measurement.MeasurementValue</td>
+                    <td>@measurement.MeasurementTimeStamp</td>
+                    <td>@measurement.SensorName</td>
+                </tr>
+                }
+            </tbody>
+        </table>*@
+    </div>
+</div>
+</div>
+

@@ -12,9 +12,6 @@ namespace TrimTonic.Models
     public class WeightManager 
     {
         private readonly IConfiguration _configuration;
-        public double Weight { get; set; }
-        public double BMI { get; set; }
-        public DateTime Date { get; set; }
         public WeightManager(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -25,7 +22,34 @@ namespace TrimTonic.Models
         {
             public double Weight { get; set; }
             public double BodyFat { get; set; }
+            public int WeightDataId { get; set; }
             public DateTime ValueDate { get; set; }
+            private readonly IConfiguration _configuration;
+
+            public WeightData(IConfiguration configuration)
+            {
+                _configuration = configuration;
+            }
+
+            public void DeleteValue(int valueId)
+            {
+                try
+                {
+                    using (SqlConnection con = new SqlConnection(_configuration["ConnectionStrings:DeafultConnection"]))
+                    {
+                        SqlCommand cmd = new SqlCommand("uspDeleteValue", con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new SqlParameter("@ValueId", valueId));
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
         }
    
     public List<WeightData> GetWeightData(int userId)
@@ -47,7 +71,8 @@ namespace TrimTonic.Models
                     {
                         while (reader.Read())
                         {
-                            WeightData weightData = new WeightData();
+                            WeightData weightData = new WeightData(_configuration);
+                            weightData.WeightDataId = reader.GetInt32("WeightDataId");
                             weightData.Weight = reader.GetDouble("Weight");
                             weightData.BodyFat = reader.GetDouble("BodyFat");
                             weightData.ValueDate = reader.GetDateTime("ValueDate");
@@ -123,6 +148,34 @@ namespace TrimTonic.Models
                         cmd.ExecuteNonQuery();
 
                     }
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void EditDataValues(int weightDataId, double weight, double bodyFat, DateTime valueDate)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(_configuration["ConnectionStrings:DeafultConnection"]))
+                {
+                    SqlCommand cmd = new SqlCommand("uspEditWeightDataValues", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    Random random = new Random();
+                    con.Open();
+
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.Add(new SqlParameter("@WeightDataId", weightDataId));
+                    cmd.Parameters.Add(new SqlParameter("@weight", weight));
+                    cmd.Parameters.Add(new SqlParameter("@bodyFat", bodyFat));
+                    cmd.Parameters.Add(new SqlParameter("@valueDate", valueDate));
+
+                    cmd.ExecuteNonQuery();
                     con.Close();
                 }
             }
